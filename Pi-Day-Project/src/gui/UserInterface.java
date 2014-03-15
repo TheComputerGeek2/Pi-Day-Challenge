@@ -17,7 +17,7 @@ public class UserInterface {
 	public static final int WIDTH = 300;
 	public static final int HEIGHT = 400;
 
-	private DigitDisplay display;
+	private static DigitDisplay display;
 
 	private PiInputField input;
 
@@ -48,7 +48,8 @@ public class UserInterface {
 	}
 
 	private JTextArea makePreviousDigitsDisplay() {
-		return new DigitDisplay();
+		UserInterface.display = new DigitDisplay();
+		return UserInterface.display;
 
 	}
 
@@ -61,6 +62,11 @@ public class UserInterface {
 		this.frame.setSize(UserInterface.WIDTH, UserInterface.HEIGHT);
 		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.frame.setLayout(new BorderLayout());
+		this.frame.setTitle("Pi Day Challenge");
+	}
+
+	public static DigitDisplay getDigitDisplay() {
+		return UserInterface.display;
 	}
 
 }

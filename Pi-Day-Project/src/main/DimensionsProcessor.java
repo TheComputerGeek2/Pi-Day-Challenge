@@ -15,6 +15,13 @@ public class DimensionsProcessor {
 	public DimensionsProcessor(int baseWidth, int baseHeight) {
 		this.baseWidth = baseWidth;
 		this.baseHeight = baseHeight;
+		determineScale();
+	}
+
+	private void determineScale() {
+		Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
+		this.scale = (Math.min((screensize.getWidth() / this.baseWidth),
+				(screensize.getHeight() / this.baseHeight)));
 	}
 
 	/**
@@ -35,8 +42,9 @@ public class DimensionsProcessor {
 	 */
 	public static void centerFrame(JFrame frame) {
 		Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
-		int newX = (screensize.width/2)-(frame.getWidth()/2);
-		int newY = (screensize.height/2)-(frame.getHeight()/2);
+
+		int newX = (screensize.width / 2) - (frame.getWidth() / 2);
+		int newY = (screensize.height / 2) - (frame.getHeight() / 2);
 		frame.setLocation(newX, newY);
 
 	}

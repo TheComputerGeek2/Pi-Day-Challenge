@@ -1,6 +1,11 @@
 package gui;
 
+import java.awt.Color;
+import java.awt.Font;
+
 import javax.swing.JTextArea;
+
+import main.Main;
 
 /**
  * The display component that will be populated with the digits that the user
@@ -14,6 +19,9 @@ public class DigitDisplay extends JTextArea {
 	public DigitDisplay() {
 		super();
 		super.setEditable(false);
+		this.setFont(new Font(Font.SANS_SERIF, Font.PLAIN,
+				Main.PROGRESS_FONT_SIZE));
+		this.setBackground(Color.GREEN);
 	}
 
 	/**
@@ -24,12 +32,13 @@ public class DigitDisplay extends JTextArea {
 	 *            the new character that the user just entered.
 	 */
 	public void updateDisplay(String newCharacter) {
-		this.setText(this.getText() + newCharacter);
+		// this.setText(this.getText() + newCharacter);
+		this.setText(newCharacter);
 
 		// this will eventually update the display to include the last character
 		// the user entered
 	}
-	
+
 	/**
 	 * Updates the display with the most recent character entered by the user
 	 * passed in as newCharacter.
