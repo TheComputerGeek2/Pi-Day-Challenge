@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-class AccuracyChecker {
+public class AccuracyChecker {
 
 	private static PiInputField inputField;
 
@@ -77,28 +77,6 @@ class AccuracyChecker {
 		}
 		return temp;
 	}
-
-	/**
-	 * Checks the last digit on the input field to see if it is accurate and
-	 * advances the index count if it is accurate. If it is wrong, it will set
-	 * its state to indicate that the last digit was wrong.
-	 * 
-	 * @return if the last digit from the user is correct.
-	 */
-	/*
-	 * public static boolean checkNextDigit() {
-	 * 
-	 * if (AccuracyChecker.inputField.getText().length() ==
-	 * AccuracyChecker.digitIndex) { int userValue =
-	 * AccuracyChecker.inputField.getText().charAt(
-	 * AccuracyChecker.inputField.getText().length() - 1);
-	 * 
-	 * System.out.println("User's value is: " + userValue); int actualValue =
-	 * AccuracyChecker.piReader.nextInt(); System.out.println("Actual Value: " +
-	 * actualValue); boolean isRight = (userValue == actualValue); if (isRight)
-	 * { AccuracyChecker.digitIndex++; } AccuracyChecker.lastDigitCorrect =
-	 * isRight; return false; } else { return true; } }
-	 */
 
 	/**
 	 * Checks if a new character has been entered to be checked.
