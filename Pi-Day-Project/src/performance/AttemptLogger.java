@@ -18,7 +18,9 @@ public class AttemptLogger {
 	 */
 	private static String currentAttemptLog;
 
-	private static PrintStream out;
+	private static PrintStream out = System.out; // TODO change this to it
+													// prints to the attempt
+													// file
 
 	public AttemptLogger() {
 		try {
