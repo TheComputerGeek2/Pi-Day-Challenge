@@ -8,14 +8,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import main.Config;
 import main.DimensionsProcessor;
 
 public class UserInterface {
 
 	private JFrame frame;
-
-	public static final int WIDTH = 300;
-	public static final int HEIGHT = 400;
 
 	private static DigitDisplay display;
 
@@ -59,7 +57,7 @@ public class UserInterface {
 
 	private void makeFrame() {
 		this.frame = new JFrame();
-		this.frame.setSize(UserInterface.WIDTH, UserInterface.HEIGHT);
+		this.frame.setSize(Config.FRAME_WIDTH, Config.FRAME_HEIGHT);
 		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.frame.setLayout(new BorderLayout());
 		this.frame.setTitle("Pi Day Challenge");

@@ -1,11 +1,10 @@
 package gui;
 
 import java.awt.Color;
-import java.awt.Font;
 
 import javax.swing.JTextArea;
 
-import main.Main;
+import main.Config;
 
 /**
  * The display component that will be populated with the digits that the user
@@ -19,8 +18,7 @@ public class DigitDisplay extends JTextArea {
 	public DigitDisplay() {
 		super();
 		super.setEditable(false);
-		this.setFont(new Font(Font.SANS_SERIF, Font.PLAIN,
-				Main.PROGRESS_FONT_SIZE));
+		this.setFont(Config.PROGRESS_FONT);
 		this.setBackground(Color.GREEN);
 	}
 
