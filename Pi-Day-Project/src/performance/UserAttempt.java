@@ -2,8 +2,15 @@ package performance;
 
 import java.util.Date;
 
+/**
+ * A class that holds data for various user attempts.
+ */
 public class UserAttempt {
 
+	/**
+	 * An enumeration containing the various reasons that the attempt could have
+	 * been ended.
+	 */
 	public static enum EndReason {
 		;
 
@@ -11,29 +18,32 @@ public class UserAttempt {
 		 * A value to indicate that the attempt ended because the user got a
 		 * digit wrong.
 		 */
-		public static final String WRONG_DIGIT = "Wrong Digit";
+		public static final String WRONG_DIGIT = "Wrong Digit"; //$NON-NLS-1$
 
 		/**
 		 * A value to indicate that the user manually restarted the attempt.
 		 */
-		public static final String MANUAL_RESTART = "Manual Restart";
+		public static final String MANUAL_RESTART = "Manual Restart"; //$NON-NLS-1$
 
 		/**
 		 * A value to indicate an unknown reason for the attempt ending.
 		 */
-		public static final String UNSPECIFIED = "Unknown Reason";
+		public static final String UNSPECIFIED = "Unknown Reason"; //$NON-NLS-1$
 	}
 
-	private String username = "unspecified";
+	private String username = "unspecified"; //$NON-NLS-1$
 
-	private String startTime;
+	private String startTime = "unknown"; //$NON-NLS-1$
 
-	private String endTime;
+	private String endTime = "unknown"; //$NON-NLS-1$
 
 	private String endReason = EndReason.UNSPECIFIED;
 
-	private int digitsCorrect;
+	private int digitsCorrect = -1;
 
+	/**
+	 * Creates a new UserAttempt object with the default data.
+	 */
 	public UserAttempt() {
 
 	}
@@ -217,7 +227,7 @@ public class UserAttempt {
 	public static UserAttempt loadFromStrings(String[] attemptData) {
 		if (attemptData.length < 5) {
 			throw new IllegalArgumentException(
-					"Passed data did not contain the required number of elements.");
+					"Passed data did not contain the required number of elements."); //$NON-NLS-1$
 		}
 		return new UserAttempt(attemptData[0], attemptData[1], attemptData[2],
 				Integer.parseInt(attemptData[3]), attemptData[4]);

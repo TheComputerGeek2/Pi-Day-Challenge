@@ -45,8 +45,8 @@ public class PiInputField extends JTextField implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent arg0) {
 		if (!PiInputField.hasStarted) {
-			long startTime = System.currentTimeMillis();
-			PiInputField.startTime = new Date(startTime).toString();
+			long startingTime = System.currentTimeMillis();
+			PiInputField.startTime = new Date(startingTime).toString();
 			System.out.println("Start time has been set to: "
 					+ PiInputField.startTime);
 		}

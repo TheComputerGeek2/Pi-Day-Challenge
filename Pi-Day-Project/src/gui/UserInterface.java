@@ -21,6 +21,8 @@ public class UserInterface {
 
 	private RankingDisplay ranking;
 
+	public static final String FRAME_TITLE = "Pi Day Challenge"; //$NON-NLS-1$
+
 	public UserInterface() {
 		makeFrame();
 		addDigitDisplay();
@@ -60,7 +62,7 @@ public class UserInterface {
 		this.frame.setSize(Config.FRAME_WIDTH, Config.FRAME_HEIGHT);
 		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.frame.setLayout(new BorderLayout());
-		this.frame.setTitle("Pi Day Challenge");
+		this.frame.setTitle(UserInterface.FRAME_TITLE);
 	}
 
 	public static DigitDisplay getDigitDisplay() {

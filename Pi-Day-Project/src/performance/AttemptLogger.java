@@ -73,10 +73,10 @@ public class AttemptLogger {
 	public static void logAttempt(String username, String startTime,
 			String endTime, int digits) {
 		// TODO print the passed data into the current log
-		AttemptLogger.out.println("Username: " + username);
-		AttemptLogger.out.println("Start Time: " + startTime);
-		AttemptLogger.out.println("End Time: " + endTime);
-		AttemptLogger.out.println("Digits correct: " + digits);
+		AttemptLogger.out.println("Username: " + username); //$NON-NLS-1$
+		AttemptLogger.out.println("Start Time: " + startTime); //$NON-NLS-1$
+		AttemptLogger.out.println("End Time: " + endTime); //$NON-NLS-1$
+		AttemptLogger.out.println("Digits correct: " + digits); //$NON-NLS-1$
 		AttemptLogger.out.println();
 	}
 
