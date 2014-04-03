@@ -79,4 +79,15 @@ public class AttemptLogger {
 		AttemptLogger.out.println("Digits correct: " + digits);
 		AttemptLogger.out.println();
 	}
+
+	/**
+	 * Logs the user's attempt from the UserAttempt object.
+	 * 
+	 * @param attempt
+	 *            the object containing the user's attempt.
+	 */
+	public static void logAttempt(UserAttempt attempt) {
+		AttemptLogger.out.println(attempt.toString());
+		AttemptLogger.out.println();
+	}
 }
