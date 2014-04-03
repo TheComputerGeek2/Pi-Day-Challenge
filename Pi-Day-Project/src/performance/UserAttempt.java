@@ -13,8 +13,14 @@ public class UserAttempt {
 		 */
 		public static final String WRONG_DIGIT = "Wrong Digit";
 
+		/**
+		 * A value to indicate that the user manually restarted the attempt.
+		 */
 		public static final String MANUAL_RESTART = "Manual Restart";
 
+		/**
+		 * A value to indicate an unknown reason for the attempt ending.
+		 */
 		public static final String UNSPECIFIED = "Unknown Reason";
 	}
 
@@ -175,11 +181,11 @@ public class UserAttempt {
 	 * line.
 	 * <p />
 	 * The elements in order are: <br>
-	 * the username <br>
-	 * the start time <br>
-	 * the end time <br>
-	 * the number of digits correct <br>
-	 * the end reason
+	 * <li>the username <br>
+	 * <li>the start time <br>
+	 * <li>the end time <br>
+	 * <li>the number of digits correct <br>
+	 * <li>the end reason <br>
 	 * 
 	 * @return the String representation of this attempt
 	 */
@@ -193,15 +199,18 @@ public class UserAttempt {
 	 * Returns a UserAttempt object representing an attempt from the data stored
 	 * in the passed data.
 	 * <p>
-	 * The first element should be the user's name <br>
-	 * The second element should be the starting time of the attempt. <br>
-	 * The third element should be the end time of the attempt. <br>
-	 * The fourth element should be the number of digits correct. <br>
-	 * The fifth element should be the reason this attempt ended.
+	 * The data elements, in order are:
+	 * <li>The user's name <br>
+	 * <li>The starting time of the attempt. <br>
+	 * <li>The end time of the attempt. <br>
+	 * <li>The number of digits correct. <br>
+	 * <li>The reason this attempt ended. <br>
+	 * 
 	 * 
 	 * @param attemptData
 	 *            the attempt data to load.
 	 * @return the UserAttempt object created from the data.
+	 * 
 	 * @throws IllegalArgumentException
 	 *             if attemptData does not contain at least 5 elements.
 	 */

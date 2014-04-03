@@ -76,8 +76,8 @@ public class PiInputField extends JTextField implements KeyListener {
 
 	/**
 	 * Prevents the user from making further edits to the input field and
-	 * changes the background to red. Should be called when the user makes a
-	 * mistake.
+	 * changes the background to red. This should be called when the user makes
+	 * a mistake.
 	 */
 	public void failSequence() {
 		long failTime = System.currentTimeMillis();
@@ -95,7 +95,7 @@ public class PiInputField extends JTextField implements KeyListener {
 	 */
 	public void reset() {
 		if (PiInputField.hasFailed) {
-			printAttempt();
+			PiInputField.printAttempt();
 		}
 		PiInputField.hasFailed = false;
 		this.setBackground(Config.INPUT_FIELD_IN_PROGRESS_COLOR);
@@ -103,25 +103,25 @@ public class PiInputField extends JTextField implements KeyListener {
 		this.setEditable(true);
 	}
 
-	private String getUsername() {
+	private static String getUsername() {
 		String username = JOptionPane.showInputDialog("Please input your name");
 		return username;
 	}
 
-	private String getStartTime() {
+	private static String getStartTime() {
 		return PiInputField.startTime;
 	}
 
-	private String getEndTime() {
+	private static String getEndTime() {
 		return PiInputField.endTime;
 	}
 
-	private int getDigitCount() {
+	private static int getDigitCount() {
 		return AccuracyChecker.getDigitsCorrect();
 	}
 
-	private void printAttempt() {
-		AttemptLogger.logAttempt(getUsername(), getStartTime(), getEndTime(),
-				getDigitCount());
+	private static void printAttempt() {
+		AttemptLogger.logAttempt(getUsername(), PiInputField.getStartTime(),
+				PiInputField.getEndTime(), PiInputField.getDigitCount());
 	}
 }

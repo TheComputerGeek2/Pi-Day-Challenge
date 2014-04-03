@@ -33,8 +33,8 @@ public class UserInterface {
 	private void addDigitDisplay() {
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(2, 1));
-		panel.add(makePreviousDigitsDisplay());
-		panel.add(makeInputField());
+		panel.add(UserInterface.makePreviousDigitsDisplay());
+		panel.add(UserInterface.makeInputField());
 		this.frame.add(panel, BorderLayout.CENTER);
 	}
 
@@ -45,13 +45,13 @@ public class UserInterface {
 		// TODO add this when everything else is working
 	}
 
-	private JTextArea makePreviousDigitsDisplay() {
+	private static JTextArea makePreviousDigitsDisplay() {
 		UserInterface.display = new DigitDisplay();
 		return UserInterface.display;
 
 	}
 
-	private JTextField makeInputField() {
+	private static JTextField makeInputField() {
 		return new PiInputField();
 	}
 

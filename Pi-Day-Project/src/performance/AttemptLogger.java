@@ -24,7 +24,7 @@ public class AttemptLogger {
 
 	public AttemptLogger() {
 		try {
-			createNewAttemptFile();
+			AttemptLogger.createNewAttemptFile();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -43,7 +43,7 @@ public class AttemptLogger {
 		if (AttemptLogger.out != null) {
 			AttemptLogger.out.close();
 		}
-		AttemptLogger.currentAttemptLog = createLogName();
+		AttemptLogger.currentAttemptLog = AttemptLogger.createLogName();
 		AttemptLogger.out = new PrintStream(new File(
 				AttemptLogger.currentAttemptLog));
 

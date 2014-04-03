@@ -19,7 +19,7 @@ public class AccuracyChecker {
 	private static File piDigits;
 
 	/**
-	 * Creates a new AccuracyChecker to verify that the user is intering the
+	 * Creates a new AccuracyChecker to verify that the user is entering the
 	 * correct digits.
 	 * 
 	 * @param inputField
@@ -114,14 +114,8 @@ public class AccuracyChecker {
 			System.out.println("No new characters found");
 			return true;
 		}
-		/*
-		 * if (!isCurrentCharacterValid(userText)) {
-		 * System.out.println("User input is not valid: " + userText);
-		 * System.out.println("Digit index is " + AccuracyChecker.digitIndex);
-		 * return false; }
-		 */
 
-		int userValue = Integer.valueOf(String.valueOf(userText
+		int userValue = Integer.parseInt(String.valueOf(userText
 				.charAt(digitIndex)));
 		System.out.println("User value is " + userValue);
 		boolean isRight = (userValue == AccuracyChecker.actualNextDigit);
