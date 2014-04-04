@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 
 import main.Config;
 import performance.AttemptLogger;
+import performance.UserAttempt;
 
 public class PiInputField extends JTextField implements KeyListener {
 
@@ -47,11 +48,16 @@ public class PiInputField extends JTextField implements KeyListener {
 		if (!PiInputField.hasStarted) {
 			long startingTime = System.currentTimeMillis();
 			PiInputField.startTime = new Date(startingTime).toString();
+			AccuracyChecker.startAttempt(startingTime);
 			System.out.println("Start time has been set to: "
 					+ PiInputField.startTime);
 		}
 		PiInputField.hasStarted = true;
 		if (arg0.getKeyCode() == Config.RESTART_KEYCODE) {
+			if (!PiInputField.hasFailed && PiInputField.hasStarted) {
+				AccuracyChecker.endAttempt(System.currentTimeMillis(),
+						UserAttempt.EndReason.MANUAL_RESTART);
+			}
 			AccuracyChecker.reload();
 			System.out.println("Accuracy Checker is Reloading");
 			return;
@@ -86,6 +92,10 @@ public class PiInputField extends JTextField implements KeyListener {
 		this.setEditable(false);
 		PiInputField.hasFailed = true;
 		this.setBackground(Config.INPUT_FIELD_FAIL_COLOR);
+		AccuracyChecker.endAttempt(failTime, UserAttempt.EndReason.WRONG_DIGIT);
+		UserAttempt attempt = AccuracyChecker.getCurrentUserAttempt();
+		attempt.setUsername(PiInputField.getUsername());
+		PiInputField.printAttempt(attempt);
 	}
 
 	/**
@@ -94,8 +104,9 @@ public class PiInputField extends JTextField implements KeyListener {
 	 * not yet failed.
 	 */
 	public void reset() {
+
 		if (PiInputField.hasFailed) {
-			PiInputField.printAttempt();
+			// PiInputField.printAttempt();
 		}
 		PiInputField.hasFailed = false;
 		this.setBackground(Config.INPUT_FIELD_IN_PROGRESS_COLOR);
@@ -121,7 +132,12 @@ public class PiInputField extends JTextField implements KeyListener {
 	}
 
 	private static void printAttempt() {
-		AttemptLogger.logAttempt(getUsername(), PiInputField.getStartTime(),
-				PiInputField.getEndTime(), PiInputField.getDigitCount());
+		AttemptLogger.logAttempt(PiInputField.getUsername(),
+				PiInputField.getStartTime(), PiInputField.getEndTime(),
+				PiInputField.getDigitCount());
+	}
+
+	private static void printAttempt(UserAttempt attempt) {
+		AttemptLogger.logAttempt(attempt);
 	}
 }

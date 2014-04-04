@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import performance.UserAttempt;
+
 public class AccuracyChecker {
 
 	private static PiInputField inputField;
@@ -17,6 +19,10 @@ public class AccuracyChecker {
 	private static boolean lastDigitCorrect;
 
 	private static File piDigits;
+
+	private static UserAttempt previousAttempt;
+
+	private static UserAttempt currentAttempt;
 
 	/**
 	 * Creates a new AccuracyChecker to verify that the user is entering the
@@ -48,6 +54,68 @@ public class AccuracyChecker {
 	}
 
 	/**
+	 * Retrieves the UserAttempt object for the latest user attempt.
+	 * 
+	 * @return the UserAttempt object.
+	 */
+	public static UserAttempt getCurrentUserAttempt() {
+		return AccuracyChecker.currentAttempt;
+	}
+
+	/**
+	 * Returns the UserAttempt object for the previous attempt.
+	 * 
+	 * @return the previous attempt.
+	 */
+	public static UserAttempt getPreviousUserAttempt() {
+		return AccuracyChecker.previousAttempt;
+	}
+
+	/**
+	 * Indicates that the attempt has started. Instantiates a new UserAttempt
+	 * object and applies the passed value as the start time.
+	 * 
+	 * @param time
+	 *            the time the attempt started.
+	 */
+	public static void startAttempt(long time) {
+		AccuracyChecker.currentAttempt = new UserAttempt();
+		AccuracyChecker.currentAttempt.setStartTime(time);
+	}
+
+	/**
+	 * Indicates that this attempt should be marked with its ending data and
+	 * applies the passed values. Uses the default username value.
+	 * 
+	 * @param time
+	 *            the time the attempt ended.
+	 * @param reason
+	 *            the reason the attempt ended.
+	 */
+	public static void endAttempt(long time, String reason) {
+		AccuracyChecker.endAttempt(time, reason, UserAttempt.DEFAULT_USERNAME);
+	}
+
+	/**
+	 * Indicates that this attempt should be marked with its ending data and
+	 * applies the passed values.
+	 * 
+	 * @param time
+	 *            the time the attempt ended.
+	 * @param reason
+	 *            the reason the attempt ended.
+	 * @param username
+	 *            the user's name.
+	 */
+	public static void endAttempt(long time, String reason, String username) {
+		AccuracyChecker.currentAttempt.setEndTime(time);
+		AccuracyChecker.currentAttempt.setEndReason(reason);
+		AccuracyChecker.currentAttempt.setDigitsCorrect(AccuracyChecker
+				.getDigitsCorrect());
+		AccuracyChecker.currentAttempt.setUsername(username);
+	}
+
+	/**
 	 * Resets the accuracy checker and the input field for next usage.
 	 */
 	public static void reload() {
@@ -63,12 +131,14 @@ public class AccuracyChecker {
 		AccuracyChecker.lastDigitCorrect = true;
 		AccuracyChecker.inputField.reset();
 
+		AccuracyChecker.previousAttempt = AccuracyChecker.currentAttempt;
+
 	}
 
 	/**
 	 * returns the number of digits the user has gotten correct so far.
 	 * 
-	 * @return the number of correct digits
+	 * @return the number of correct digits.
 	 */
 	public static int getDigitsCorrect() {
 		int temp = AccuracyChecker.digitIndex;
@@ -101,7 +171,8 @@ public class AccuracyChecker {
 	 * Checks if the character at the current digit index is valid.
 	 * 
 	 * @param userText
-	 *            the user's text input
+	 *            the user's text input.
+	 * 
 	 * @return if it is a valid character.
 	 */
 	private static boolean isCurrentCharacterValid(String userText) {

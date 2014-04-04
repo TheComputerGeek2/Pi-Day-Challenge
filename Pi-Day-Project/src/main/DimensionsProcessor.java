@@ -26,19 +26,19 @@ public class DimensionsProcessor {
 
 	/**
 	 * Finds the maximum value that the dimensions can be multiplied by while
-	 * still keeping the aspect ratio
+	 * still keeping the aspect ratio.
 	 * 
-	 * @return the scale factor
+	 * @return the scale factor.
 	 */
 	public double getScale() {
 		return this.scale;
 	}
 
 	/**
-	 * Centers the frame passed on the monitor
+	 * Centers the frame passed on the monitor.
 	 * 
 	 * @param frame
-	 *            the frame to center
+	 *            the frame to center.
 	 */
 	public static void centerFrame(JFrame frame) {
 		Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();

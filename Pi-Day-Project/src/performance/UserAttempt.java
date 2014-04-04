@@ -31,7 +31,9 @@ public class UserAttempt {
 		public static final String UNSPECIFIED = "Unknown Reason"; //$NON-NLS-1$
 	}
 
-	private String username = "unspecified"; //$NON-NLS-1$
+	public static final String DEFAULT_USERNAME = "Unspecified";
+
+	private String username = UserAttempt.DEFAULT_USERNAME; //$NON-NLS-1$
 
 	private String startTime = "unknown"; //$NON-NLS-1$
 

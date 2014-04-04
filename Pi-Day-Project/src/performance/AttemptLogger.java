@@ -33,10 +33,10 @@ public class AttemptLogger {
 	}
 
 	/**
-	 * Creates a new file to save the attempts
+	 * Creates a new file to save the attempts.
 	 * 
 	 * @throws FileNotFoundException
-	 *             thrown by the PrintStream
+	 *             thrown by the PrintStream.
 	 * 
 	 */
 	private static void createNewAttemptFile() throws FileNotFoundException {
@@ -62,7 +62,7 @@ public class AttemptLogger {
 	 * Logs an attempt to the attempt log.
 	 * 
 	 * @param username
-	 *            the user's name
+	 *            the user's name.
 	 * @param startTime
 	 *            the time the attempt started.
 	 * @param endTime
