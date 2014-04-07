@@ -207,6 +207,11 @@ public class UserAttempt {
 				+ "\n" + this.digitsCorrect + "\n" + this.endReason; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
+	public String[] toStrings() {
+		return new String[] { this.username, this.startTime, this.endTime,
+				Integer.toString(this.digitsCorrect), this.endReason };
+	}
+
 	/**
 	 * Returns a UserAttempt object representing an attempt from the data stored
 	 * in the passed data.
