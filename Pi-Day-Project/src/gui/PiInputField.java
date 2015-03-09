@@ -19,8 +19,10 @@ public class PiInputField extends JTextField implements KeyListener {
 	 * Represents the file that contains the digits of pi. This should be fixed
 	 * later.
 	 */
-	public static final String PI_FILE = "W:\\Staff_Student\\jjmiller\\Writeable\\Pi.txt";
-
+	//public static final String PI_FILE = "W:\\Staff_Student\\jjmiller\\Writeable\\Pi.txt";
+	
+	public static final String PI_FILE = "Pi.txt";
+	
 	private static boolean hasFailed = false;
 
 	private AccuracyChecker ac;

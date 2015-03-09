@@ -51,6 +51,7 @@ public class AttemptLogger {
 		File logFile = new File(AttemptLogger.currentAttemptLog);
 		try {
 			logFile.createNewFile();
+			System.out.println("Created log file");
 		} catch (IOException e) {
 			System.out.println("Couldn't create new file");
 			e.printStackTrace();
