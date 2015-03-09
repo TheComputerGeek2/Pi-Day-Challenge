@@ -3,7 +3,6 @@ package gui;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.File;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
@@ -16,10 +15,6 @@ import performance.UserAttempt;
 
 public class PiInputField extends JTextField implements KeyListener {
 
-
-	
-
-	
 	/**
 	 * Represents the file that contains the digits of pi. This should be fixed
 	 * later.

@@ -15,6 +15,7 @@ import main.Config;
  */
 @SuppressWarnings("serial")
 public class DigitDisplay extends JTextArea {
+
 	public DigitDisplay() {
 		super();
 		super.setEditable(false);
