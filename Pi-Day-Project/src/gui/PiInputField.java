@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import main.Config;
+import main.Main;
 import performance.AttemptLogger;
 import performance.UserAttempt;
 
@@ -20,9 +21,14 @@ public class PiInputField extends JTextField implements KeyListener {
 	 * later.
 	 */
 	//public static final String PI_FILE = "W:\\Staff_Student\\jjmiller\\Writeable\\Pi.txt";
+<<<<<<< HEAD
 	
 	public static final String PI_FILE = "Pi.txt";
 	
+=======
+	public static final String PI_FILE = "https://dl.dropboxusercontent.com/u/44791770/Pi.txt";
+
+>>>>>>> Download digits file as needed
 	private static boolean hasFailed = false;
 
 	private AccuracyChecker ac;
@@ -39,7 +45,7 @@ public class PiInputField extends JTextField implements KeyListener {
 	 */
 	public PiInputField() {
 		super();
-		this.ac = new AccuracyChecker(this, new File(PiInputField.PI_FILE));
+		this.ac = new AccuracyChecker(this, Main.PI_FILE);
 		this.addKeyListener(this);
 		this.setFont(Config.INPUT_FONT);
 		this.setBackground(Config.INPUT_FIELD_IN_PROGRESS_COLOR);
