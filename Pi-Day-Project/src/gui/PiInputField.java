@@ -16,19 +16,16 @@ import performance.UserAttempt;
 
 public class PiInputField extends JTextField implements KeyListener {
 
+
+	
+
+	
 	/**
 	 * Represents the file that contains the digits of pi. This should be fixed
 	 * later.
 	 */
-	//public static final String PI_FILE = "W:\\Staff_Student\\jjmiller\\Writeable\\Pi.txt";
-<<<<<<< HEAD
-	
-	public static final String PI_FILE = "Pi.txt";
-	
-=======
 	public static final String PI_FILE = "https://dl.dropboxusercontent.com/u/44791770/Pi.txt";
 
->>>>>>> Download digits file as needed
 	private static boolean hasFailed = false;
 
 	private AccuracyChecker ac;
