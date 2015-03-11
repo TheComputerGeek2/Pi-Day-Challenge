@@ -12,12 +12,18 @@ import java.nio.channels.ReadableByteChannel;
 public class Main {
 
 	public static File PI_FILE;
+	
+	public static final boolean DEBUG = false;
 
 	public static void main(String[] args) {
 		getFile();
 		new UserInterface();
 	}
-
+	
+	public static void debugPrintln(String s) {
+		if (DEBUG) System.out.println(s);
+	}
+	
 	public static void getFile() {
 		try {
 
@@ -39,7 +45,6 @@ public class Main {
 			Main.PI_FILE = piData;
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

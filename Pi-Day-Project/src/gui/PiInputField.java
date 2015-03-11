@@ -32,6 +32,11 @@ public class PiInputField extends JTextField implements KeyListener {
 	private static boolean hasStarted = false;
 
 	/**
+	 * <strong>PiInputField</strong>
+	 * <p>
+	 * public <strong>PiInputField</strong>()
+	 * <p>
+	 * 
 	 * Instantiates the default input field for the gui. Loads with the
 	 * listeners ready and the font set.
 	 */
@@ -49,7 +54,7 @@ public class PiInputField extends JTextField implements KeyListener {
 			long startingTime = System.currentTimeMillis();
 			PiInputField.startTime = new Date(startingTime).toString();
 			AccuracyChecker.startAttempt(startingTime);
-			System.out.println("Start time has been set to: "
+			Main.debugPrintln("Start time has been set to: "
 					+ PiInputField.startTime);
 		}
 		PiInputField.hasStarted = true;
@@ -59,7 +64,7 @@ public class PiInputField extends JTextField implements KeyListener {
 						UserAttempt.EndReason.MANUAL_RESTART);
 			}
 			AccuracyChecker.reload();
-			System.out.println("Accuracy Checker is Reloading");
+			Main.debugPrintln("Accuracy Checker is Reloading");
 			return;
 		}
 		Toolkit.getDefaultToolkit().sync();
@@ -81,6 +86,11 @@ public class PiInputField extends JTextField implements KeyListener {
 	}
 
 	/**
+	 * <strong>failSequence</strong>
+	 * <p>
+	 * public void <strong>failSequence</strong>()
+	 * <p>
+	 * 
 	 * Prevents the user from making further edits to the input field and
 	 * changes the background to red. This should be called when the user makes
 	 * a mistake.
@@ -88,7 +98,7 @@ public class PiInputField extends JTextField implements KeyListener {
 	public void failSequence() {
 		long failTime = System.currentTimeMillis();
 		PiInputField.endTime = new Date(failTime).toString();
-		System.out.println("Fail time is now set to: " + PiInputField.endTime);
+		Main.debugPrintln("Fail time is now set to: " + PiInputField.endTime);
 		this.setEditable(false);
 		PiInputField.hasFailed = true;
 		this.setBackground(Config.INPUT_FIELD_FAIL_COLOR);
@@ -99,6 +109,9 @@ public class PiInputField extends JTextField implements KeyListener {
 	}
 
 	/**
+	 * <strong>reset</strong><p>
+	 * public void <strong>reset</strong>()<p>
+	 * 
 	 * Resets the input field and background so that it can be edited again and
 	 * the background color is back in the state indicating that it the user has
 	 * not yet failed.

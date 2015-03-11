@@ -8,7 +8,7 @@ import main.Config;
 
 /**
  * The display component that will be populated with the digits that the user
- * has entered so far. It should be a noneditable display which always focuses
+ * has entered so far. It should be a non-editable display which always focuses
  * on the more recent digits that the user entered.
  * 
  * @see JTextArea
@@ -24,6 +24,11 @@ public class DigitDisplay extends JTextArea {
 	}
 
 	/**
+	 * <strong>updateDisplay</strong>
+	 * <p>
+	 * public void <strong>updateDisplay</strong>(String newCharacter)
+	 * <p>
+	 * 
 	 * Updates the display with the most recent character entered by the user
 	 * passed in as newCharacter.
 	 * 
@@ -39,6 +44,11 @@ public class DigitDisplay extends JTextArea {
 	}
 
 	/**
+	 * <strong>updateDisplay</strong>
+	 * <p>
+	 * public void <strong>updateDisplay</strong>(char newCharacter)
+	 * <p>
+	 * 
 	 * Updates the display with the most recent character entered by the user
 	 * passed in as newCharacter.
 	 * 
@@ -50,6 +60,11 @@ public class DigitDisplay extends JTextArea {
 	}
 
 	/**
+	 * <strong>clearDisplay</strong>
+	 * <p>
+	 * public void <strong>clearDisplay</strong>()
+	 * <p>
+	 * 
 	 * Clears the display of the entered digits and puts up 3. for starting
 	 */
 	public void clearDisplay() {

@@ -17,16 +17,23 @@ public class UserAttempt {
 		/**
 		 * A value to indicate that the attempt ended because the user got a
 		 * digit wrong.
+		 * 
+		 * <p>
+		 * Value: {@value}
 		 */
 		public static final String WRONG_DIGIT = "Wrong Digit"; //$NON-NLS-1$
 
 		/**
 		 * A value to indicate that the user manually restarted the attempt.
+		 * <p>
+		 * Value: {@value}
 		 */
 		public static final String MANUAL_RESTART = "Manual Restart"; //$NON-NLS-1$
 
 		/**
 		 * A value to indicate an unknown reason for the attempt ending.
+		 * <p>
+		 * Value: {@value}
 		 */
 		public static final String UNSPECIFIED = "Unknown Reason"; //$NON-NLS-1$
 	}
@@ -44,6 +51,11 @@ public class UserAttempt {
 	private int digitsCorrect = -1;
 
 	/**
+	 * <strong>UserAttempt</strong>
+	 * <p>
+	 * public <strong>UserAttempt</strong>()
+	 * <p>
+	 * 
 	 * Creates a new UserAttempt object with the default data.
 	 */
 	public UserAttempt() {
@@ -51,16 +63,26 @@ public class UserAttempt {
 	}
 
 	/**
+	 * <strong>UserAttempt</strong>
+	 * <p>
+	 * public <strong>UserAttempt</strong>(String username, String startTime,
+	 * String endTime, int digitsCorrect, String endReason)
+	 * <p>
+	 * 
 	 * Creates a new object to represent a user attempt with the specified data.
 	 * 
 	 * @param username
 	 *            the user's name.
+	 * 
 	 * @param startTime
 	 *            the attempt start time.
+	 * 
 	 * @param endTime
 	 *            the attempt end time.
+	 * 
 	 * @param digitsCorrect
 	 *            the number of digits correct on this attempt.
+	 * 
 	 * @param endReason
 	 *            the reason this attempt ended.
 	 */
@@ -74,6 +96,11 @@ public class UserAttempt {
 	}
 
 	/**
+	 * <strong>getUsername</strong>
+	 * <p>
+	 * public String <strong>getUsername</strong>()
+	 * <p>
+	 * 
 	 * Returns the username associated with this attempt.
 	 * 
 	 * @return the username.
@@ -83,6 +110,11 @@ public class UserAttempt {
 	}
 
 	/**
+	 * <strong>getStartTime</strong>
+	 * <p>
+	 * public String <strong>getStartTime</strong>()
+	 * <p>
+	 * 
 	 * Returns the start time associated with this attempt.
 	 * 
 	 * @return the start time.
@@ -92,6 +124,11 @@ public class UserAttempt {
 	}
 
 	/**
+	 * <strong>getEndTime</strong>
+	 * <p>
+	 * public String <strong>getEndTime</strong>()
+	 * <p>
+	 * 
 	 * Returns the end time associated with this attempt.
 	 * 
 	 * @return the end time.
@@ -101,6 +138,11 @@ public class UserAttempt {
 	}
 
 	/**
+	 * <strong>getEndReason</strong>
+	 * <p>
+	 * public String <strong>getEndReason</strong>()
+	 * <p>
+	 * 
 	 * Returns the apparent reason for this attempt being ended.
 	 * 
 	 * @return the end reason.
@@ -110,6 +152,11 @@ public class UserAttempt {
 	}
 
 	/**
+	 * <strong>getDigitsCorrect</strong>
+	 * <p>
+	 * public int <strong>getDigitsCorrect</strong>()
+	 * <p>
+	 * 
 	 * Returns the number of digits the user got correct on this attempt.
 	 * 
 	 * @return the number of digits correct.
@@ -119,6 +166,11 @@ public class UserAttempt {
 	}
 
 	/**
+	 * <strong>setStartTime</strong>
+	 * <p>
+	 * public void <strong>setStartTime</strong>(long startTime)
+	 * <p>
+	 * 
 	 * Sets the start time to associate with this attempt.
 	 * 
 	 * @param startTime
@@ -129,6 +181,11 @@ public class UserAttempt {
 	}
 
 	/**
+	 * <strong>setStartTime</strong>
+	 * <p>
+	 * public void <strong>setStartTime</strong>(String startTime)
+	 * <p>
+	 * 
 	 * Sets the start time to associate with this attempt.
 	 * 
 	 * @param startTime
@@ -139,6 +196,11 @@ public class UserAttempt {
 	}
 
 	/**
+	 * <strong>setUsername</strong>
+	 * <p>
+	 * public void <strong>setUsername</strong>(String username)
+	 * <p>
+	 * 
 	 * Sets the username to associate with this attempt.
 	 * 
 	 * @param username
@@ -149,6 +211,11 @@ public class UserAttempt {
 	}
 
 	/**
+	 * <strong>setEndTime</strong>
+	 * <p>
+	 * public void <strong>setEndTime</strong>(long endTime)
+	 * <p>
+	 * 
 	 * Sets the time that this attempt ended.
 	 * 
 	 * @param endTime
@@ -159,6 +226,11 @@ public class UserAttempt {
 	}
 
 	/**
+	 * <strong>setEndTime</strong>
+	 * <p>
+	 * public void <strong>setEndTime</strong>(String endTime)
+	 * <p>
+	 * 
 	 * Sets the time that this attempt ended.
 	 * 
 	 * @param endTime
@@ -169,6 +241,11 @@ public class UserAttempt {
 	}
 
 	/**
+	 * <strong>setEndReason</strong>
+	 * <p>
+	 * public void <strong>setEndReason</strong>(String reason)
+	 * <p>
+	 * 
 	 * Specifies the reason this attempt ended.
 	 * 
 	 * @param reason
@@ -179,6 +256,11 @@ public class UserAttempt {
 	}
 
 	/**
+	 * <strong>setDigitsCorrect</strong>
+	 * <p>
+	 * public void <strong>setDigitsCorrect</strong>(int digits)
+	 * <p>
+	 * 
 	 * Specifies how many digits the user got correct.
 	 * 
 	 * @param digits
@@ -189,6 +271,11 @@ public class UserAttempt {
 	}
 
 	/**
+	 * <strong>toString</strong>
+	 * <p>
+	 * public String <strong>toString</strong>()
+	 * <p>
+	 * 
 	 * Returns the string equivalent of this object. Each element is on its own
 	 * line.
 	 * <p />
@@ -213,6 +300,12 @@ public class UserAttempt {
 	}
 
 	/**
+	 * <strong>loadFromStrings</strong>
+	 * <p>
+	 * public static UserAttempt <strong>loadFromStrings</strong>(String[]
+	 * attemptData)
+	 * <p>
+	 * 
 	 * Returns a UserAttempt object representing an attempt from the data stored
 	 * in the passed data.
 	 * <p>
@@ -226,6 +319,7 @@ public class UserAttempt {
 	 * 
 	 * @param attemptData
 	 *            the attempt data to load.
+	 * 
 	 * @return the UserAttempt object created from the data.
 	 * 
 	 * @throws IllegalArgumentException

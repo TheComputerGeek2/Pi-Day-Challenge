@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Date;
 
+import main.Main;
+
 public class AttemptLogger {
 
 	private static final String ATTEMPT_LOG_FOLDER = "H:\\attempts\\"; // This
@@ -37,6 +39,12 @@ public class AttemptLogger {
 	}
 
 	/**
+	 * <strong>createNewAttempt</strong>
+	 * <p>
+	 * private static void <strong>createNewAttempt</strong>() throws
+	 * FileNotFoundException
+	 * <p>
+	 * 
 	 * Creates a new file to save the attempts.
 	 * 
 	 * @throws FileNotFoundException
@@ -51,9 +59,9 @@ public class AttemptLogger {
 		File logFile = new File(AttemptLogger.currentAttemptLog);
 		try {
 			logFile.createNewFile();
-			System.out.println("Created log file");
+			Main.debugPrintln("Created log file");
 		} catch (IOException e) {
-			System.out.println("Couldn't create new file");
+			Main.debugPrintln("Couldn't create new file");
 			e.printStackTrace();
 		}
 		AttemptLogger.out = new PrintStream(logFile);
@@ -61,6 +69,11 @@ public class AttemptLogger {
 	}
 
 	/**
+	 * <strong>createLogName</strong>
+	 * <p>
+	 * private static String <strong>createLogName</strong>()
+	 * <p>
+	 * 
 	 * Returns a name for a new attempt log file.
 	 * 
 	 * @return the new file name.
@@ -71,14 +84,23 @@ public class AttemptLogger {
 	}
 
 	/**
+	 * <strong>logAttempt</strong>
+	 * <p>
+	 * public static void <strong>logAttempt</strong>(String username, String
+	 * startTime, String endTime, int digits)
+	 * <p>
+	 * 
 	 * Logs an attempt to the attempt log.
 	 * 
 	 * @param username
 	 *            the user's name.
+	 * 
 	 * @param startTime
 	 *            the time the attempt started.
+	 * 
 	 * @param endTime
 	 *            the time the attempt was finished.
+	 * 
 	 * @param digits
 	 *            the number of digits the user got correct.
 	 */
@@ -94,6 +116,11 @@ public class AttemptLogger {
 	}
 
 	/**
+	 * <strong>logAttempt</strong>
+	 * <p>
+	 * public static void <strong>logAttempt</strong>(UserAttempt attempt)
+	 * <p>
+	 * 
 	 * Logs the user's attempt from the UserAttempt object.
 	 * 
 	 * @param attempt
@@ -115,8 +142,7 @@ public class AttemptLogger {
 				AttemptLogger.createNewAttemptFile();
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
-				System.out
-						.println("Error being responded to: using default printstream");
+				Main.debugPrintln("Error being responded to: using default printstream");
 				AttemptLogger.currentAttemptLog = "Console";
 				AttemptLogger.out = System.out;
 			}

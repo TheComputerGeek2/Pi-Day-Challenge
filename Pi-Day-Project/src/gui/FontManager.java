@@ -14,6 +14,11 @@ public class FontManager {
 	}
 
 	/**
+	 * <strong>getDigitDisplayFont</strong>
+	 * <p>
+	 * public static Font <strong>getDigitDisplayFont</strong>()
+	 * <p>
+	 * 
 	 * Returns a font appropriate for the digit display component based upon the
 	 * frame size.
 	 * 
@@ -25,6 +30,11 @@ public class FontManager {
 	}
 
 	/**
+	 * <strong>getDigitInputFont</strong>
+	 * <p>
+	 * public static Font <strong>getDigitInputFont</strong>()
+	 * <p>
+	 * 
 	 * Returns a font appropriate for the digit input component based upon the
 	 * frame size.
 	 * 
@@ -36,6 +46,11 @@ public class FontManager {
 	}
 
 	/**
+	 * <strong>getRankingDisplayFont</strong>
+	 * <p>
+	 * public static Font <strong>getRankingDisplayFont</strong>()
+	 * <p>
+	 * 
 	 * Returns a font appropriate for the ranking display component based upon
 	 * the frame size.
 	 * 

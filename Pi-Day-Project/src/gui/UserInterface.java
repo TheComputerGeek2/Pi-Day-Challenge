@@ -20,7 +20,7 @@ public class UserInterface {
 	private PiInputField input;
 
 	private RankingDisplay ranking;
-
+	
 	public static final String FRAME_TITLE = "Pi Day Challenge"; //$NON-NLS-1$
 
 	public UserInterface() {
@@ -36,7 +36,9 @@ public class UserInterface {
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(2, 1));
 		panel.add(UserInterface.makePreviousDigitsDisplay());
-		panel.add(UserInterface.makeInputField());
+		input = new PiInputField();
+		//panel.add(UserInterface.makeInputField());
+		panel.add(input);
 		this.frame.add(panel, BorderLayout.CENTER);
 	}
 

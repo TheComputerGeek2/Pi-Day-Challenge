@@ -25,6 +25,11 @@ public class DimensionsProcessor {
 	}
 
 	/**
+	 * <strong>getScale</strong>
+	 * <p>
+	 * public double <strong>getScale</strong>()
+	 * <p>
+	 * 
 	 * Finds the maximum value that the dimensions can be multiplied by while
 	 * still keeping the aspect ratio.
 	 * 
@@ -35,6 +40,11 @@ public class DimensionsProcessor {
 	}
 
 	/**
+	 * <strong>centerFrame</strong>
+	 * <p>
+	 * public static void <strong>centerFrame</strong>(JFrame frame)
+	 * <p>
+	 * 
 	 * Centers the frame passed on the monitor.
 	 * 
 	 * @param frame
