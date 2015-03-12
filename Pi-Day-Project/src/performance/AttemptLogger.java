@@ -1,10 +1,14 @@
 package performance;
 
+import gui.UserInterface;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Date;
+
+import javax.swing.JOptionPane;
 
 import main.Main;
 
@@ -32,8 +36,8 @@ public class AttemptLogger {
 		try {
 			AttemptLogger.createNewAttemptFile();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// TODO handle this nicely instead of crashing
+			Main.debugException(e);
 		}
 
 	}
@@ -52,7 +56,7 @@ public class AttemptLogger {
 	 * 
 	 */
 	private static void createNewAttemptFile() throws FileNotFoundException {
-		if (AttemptLogger.out != null) {
+		if (AttemptLogger.out != null && AttemptLogger.out != (System.out)) {
 			AttemptLogger.out.close();
 		}
 		AttemptLogger.currentAttemptLog = AttemptLogger.createLogName();
@@ -62,7 +66,8 @@ public class AttemptLogger {
 			Main.debugPrintln("Created log file");
 		} catch (IOException e) {
 			Main.debugPrintln("Couldn't create new file");
-			e.printStackTrace();
+			// TODO handle this nicely instead of crashing
+			Main.debugException(e);
 		}
 		AttemptLogger.out = new PrintStream(logFile);
 
@@ -80,7 +85,9 @@ public class AttemptLogger {
 	 */
 	private static String createLogName() {
 		return AttemptLogger.ATTEMPT_LOG_FOLDER
-				+ "Pi-Attempt-Log-Of-" + (new Date(System.currentTimeMillis()).toString().replace(".", " ").replace(":", "-")) + ".txt"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+				+ "Pi-Attempt-Log-Of-"
+				+ (new Date(System.currentTimeMillis()).toString().replace(".",
+						" ").replace(":", "-")) + ".txt";
 	}
 
 	/**
@@ -141,10 +148,16 @@ public class AttemptLogger {
 			try {
 				AttemptLogger.createNewAttemptFile();
 			} catch (FileNotFoundException e) {
-				e.printStackTrace();
+				Main.debugException(e);
 				Main.debugPrintln("Error being responded to: using default printstream");
 				AttemptLogger.currentAttemptLog = "Console";
 				AttemptLogger.out = System.out;
+
+				JOptionPane.showMessageDialog(null,
+						"An error occurred when creating the log file,\n"
+								+ "using console instead",
+						UserInterface.FRAME_TITLE, JOptionPane.WARNING_MESSAGE);
+
 			}
 		}
 	}

@@ -25,6 +25,8 @@ public class AccuracyChecker {
 
 	private static UserAttempt currentAttempt;
 
+	public static final String VALID_CHARACTERS = "0123456789";
+
 	/**
 	 * <strong>AccuracyChecker</strong>
 	 * <p>
@@ -53,8 +55,8 @@ public class AccuracyChecker {
 		try {
 			AccuracyChecker.piReader = new Scanner(piDigits);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Main.debugException(e);
+			//TODO handle this nicely instead of crashing
 		}
 		AccuracyChecker.inputField.setText(""); //$NON-NLS-1$
 		AccuracyChecker.actualNextDigit = AccuracyChecker.piReader.nextInt();
@@ -165,7 +167,8 @@ public class AccuracyChecker {
 		try {
 			AccuracyChecker.piReader = new Scanner(AccuracyChecker.piDigits);
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			Main.debugException(e);
+			//TODO handle this nicely instead of crashing
 		}
 		AccuracyChecker.digitIndex = 0;
 		AccuracyChecker.inputField.setText(null);
@@ -209,8 +212,8 @@ public class AccuracyChecker {
 	 * @return if there is a new character to check.
 	 */
 	private static boolean hasNewCharacter(String userText) {
-		System.out.println("Checking for new character in string " + userText);
-		System.out.println("Digit index is " + AccuracyChecker.digitIndex);
+		Main.debugPrintln("Checking for new character in string " + userText);
+		Main.debugPrintln("Digit index is " + AccuracyChecker.digitIndex);
 		return (userText.length() > AccuracyChecker.digitIndex);
 
 	}
@@ -235,7 +238,7 @@ public class AccuracyChecker {
 	 * @return if it is a valid character.
 	 */
 	private static boolean isCurrentCharacterValid(String userText) {
-		return (!"0123456789".contains(String.valueOf(userText
+		return (!VALID_CHARACTERS.contains(String.valueOf(userText
 				.charAt(AccuracyChecker.digitIndex))));
 	}
 
@@ -261,16 +264,23 @@ public class AccuracyChecker {
 
 		int userValue = Integer.parseInt(String.valueOf(userText
 				.charAt(digitIndex)));
+		
 		Main.debugPrintln("User value is " + userValue);
+		
 		boolean isRight = (userValue == AccuracyChecker.actualNextDigit);
+		
 		Main.debugPrintln("Actual value is " + AccuracyChecker.actualNextDigit);
 		Main.debugPrintln("Is the user right? " + isRight);
+		
 		AccuracyChecker.digitIndex++;
+		
 		Main.debugPrintln("Changing digit index to "
 				+ AccuracyChecker.digitIndex);
+
 		AccuracyChecker.actualNextDigit = AccuracyChecker.piReader.nextInt();
 		Main.debugPrintln("Next correct digit: "
 				+ AccuracyChecker.actualNextDigit);
+
 		if (isRight) {
 			UserInterface.getDigitDisplay().updateDisplay(
 					String.valueOf(AccuracyChecker.digitIndex));
