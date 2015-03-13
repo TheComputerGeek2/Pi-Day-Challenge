@@ -1,7 +1,6 @@
 package gui;
 
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -41,16 +40,10 @@ public class RankingDisplay extends JPanel {
 		updateDisplay();
 	}
 	
-	private String getAttemptLabel(UserAttempt attempt) {
+	private static String getAttemptLabel(UserAttempt attempt) {
 		String label = attempt.getUsername() + " - " + attempt.getDigitsCorrect();
 		return label;
 	}
-	
-	
-
-	//public void updateUser(String username, int digits) {
-		// TODO make this work
-	//}
 	
 	private void updateDisplay() {
 		listings.setListData(attempts.values().toArray());

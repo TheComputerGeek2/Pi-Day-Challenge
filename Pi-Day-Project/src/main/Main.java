@@ -30,21 +30,54 @@ public class Main {
 		new UserInterface();
 	}
 
+	/**
+	 * <strong>debugPrintln</strong>
+	 * <p>
+	 * public static void <strong>debugPrintln</strong>({@link String} s)
+	 * <p>
+	 * 
+	 * Writes s to the debug PrintStream, if the debug mode has been enabled.
+	 * 
+	 * @param s
+	 *            the value to write to the debug stream.
+	 */
 	public static void debugPrintln(String s) {
 		if (DEBUG) {
 			debugOut.println(s);
 		}
 	}
 
+	/**
+	 * <strong>debugException</strong>
+	 * <p>
+	 * public static void <strong>debugException</strong>({@link Exception} e)
+	 * <p>
+	 * 
+	 * Writes e's stack trace to the debug PrintStream.
+	 * 
+	 * @param e
+	 *            the Exception to write to the debug stream.
+	 */
 	public static void debugException(Exception e) {
 		e.printStackTrace(debugOut);
 	}
 
+	/**
+	 * <strong>getFile</strong>
+	 * <p>
+	 * public static void <strong>getFile</strong>()
+	 * <p>
+	 * 
+	 * Ensures that there is a file with the digits of Pi that the application
+	 * may read from. Downloads the file if it isn't found locally.
+	 * 
+	 */
 	public static void getFile() {
 		try {
 
 			File piData = new File(piFileName);
 			if (!piData.exists()) {
+
 				URL website = new URL(
 						"https://dl.dropboxusercontent.com/u/44791770/Pi.txt");
 				ReadableByteChannel rbc = Channels.newChannel(website
@@ -94,4 +127,5 @@ public class Main {
 				"Application will now shut down.");
 		System.exit(1);
 	}
+
 }
