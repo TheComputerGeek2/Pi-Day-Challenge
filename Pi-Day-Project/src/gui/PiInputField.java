@@ -106,6 +106,9 @@ public class PiInputField extends JTextField implements KeyListener {
 		UserAttempt attempt = AccuracyChecker.getCurrentUserAttempt();
 		attempt.setUsername(PiInputField.getUsername());
 		PiInputField.printAttempt(attempt);
+		
+		//TODO add the user attempt here
+		UserInterface.getRankingDisplay().addAttempt(attempt);
 	}
 
 	/**

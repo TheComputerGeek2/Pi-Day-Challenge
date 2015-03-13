@@ -21,6 +21,7 @@ public class DigitDisplay extends JTextArea {
 		super.setEditable(false);
 		this.setFont(Config.PROGRESS_FONT);
 		this.setBackground(Color.GREEN);
+
 	}
 
 	/**

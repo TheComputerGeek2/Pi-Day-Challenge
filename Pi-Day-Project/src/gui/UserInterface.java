@@ -11,6 +11,11 @@ import javax.swing.JTextField;
 import main.Config;
 import main.DimensionsProcessor;
 
+/**
+ * A container for the main user interface layout of the application.
+ * 
+ * @author TheComputerGeek2
+ */
 public class UserInterface {
 
 	private JFrame frame;
@@ -19,7 +24,7 @@ public class UserInterface {
 
 	private PiInputField input;
 
-	private RankingDisplay ranking;
+	private static RankingDisplay ranking;
 
 	/**
 	 * The title to be used for most frames in the application.
@@ -28,6 +33,7 @@ public class UserInterface {
 	 */
 	public static final String FRAME_TITLE = "Pi Day Challenge"; //$NON-NLS-1$
 
+	
 	public UserInterface() {
 		makeFrame();
 		addDigitDisplay();
@@ -42,14 +48,13 @@ public class UserInterface {
 		panel.setLayout(new GridLayout(2, 1));
 		panel.add(UserInterface.makePreviousDigitsDisplay());
 		input = new PiInputField();
-		// panel.add(UserInterface.makeInputField());
 		panel.add(input);
 		this.frame.add(panel, BorderLayout.CENTER);
 	}
 
 	private void addRankingDisplay() {
-		this.ranking = new RankingDisplay();
-		this.frame.add(this.ranking, BorderLayout.EAST);
+		UserInterface.ranking = new RankingDisplay();
+		this.frame.add(UserInterface.ranking, BorderLayout.EAST);
 
 		// TODO add this when everything else is working
 	}
@@ -58,10 +63,6 @@ public class UserInterface {
 		UserInterface.display = new DigitDisplay();
 		return UserInterface.display;
 
-	}
-
-	private static JTextField makeInputField() {
-		return new PiInputField();
 	}
 
 	private void makeFrame() {
@@ -74,6 +75,10 @@ public class UserInterface {
 
 	public static DigitDisplay getDigitDisplay() {
 		return UserInterface.display;
+	}
+	
+	public static RankingDisplay getRankingDisplay() {
+		return UserInterface.ranking;
 	}
 
 }

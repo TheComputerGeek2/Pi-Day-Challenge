@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * A class that holds data for various user attempts.
  */
-public class UserAttempt {
+public class UserAttempt implements Comparable<UserAttempt> {
 
 	/**
 	 * An enumeration containing the various reasons that the attempt could have
@@ -351,5 +351,14 @@ public class UserAttempt {
 		}
 		return new UserAttempt(attemptData[0], attemptData[1], attemptData[2],
 				Integer.parseInt(attemptData[3]), attemptData[4]);
+	}
+
+	@Override
+	public int compareTo(UserAttempt arg0) {
+		//if this is greater than arg0, positive normally
+		//inverted so the better attempts are at the top
+		
+		return arg0.getDigitsCorrect() - getDigitsCorrect();
+		
 	}
 }
