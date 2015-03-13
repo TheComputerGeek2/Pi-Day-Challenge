@@ -357,8 +357,13 @@ public class UserAttempt implements Comparable<UserAttempt> {
 	public int compareTo(UserAttempt arg0) {
 		//if this is greater than arg0, positive normally
 		//inverted so the better attempts are at the top
+		int digitDifference = arg0.getDigitsCorrect() - getDigitsCorrect();
+		if (digitDifference != 0) {
+			return digitDifference;
+		}
 		
-		return arg0.getDigitsCorrect() - getDigitsCorrect();
+		return startTime.compareTo(arg0.startTime);
+		
 		
 	}
 }
