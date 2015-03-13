@@ -27,7 +27,7 @@ public class DigitDisplay extends JTextArea {
 	/**
 	 * <strong>updateDisplay</strong>
 	 * <p>
-	 * public void <strong>updateDisplay</strong>(String newCharacter)
+	 * public void <strong>updateDisplay</strong>({@link String} newCharacter)
 	 * <p>
 	 * 
 	 * Updates the display with the most recent character entered by the user

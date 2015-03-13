@@ -42,7 +42,7 @@ public class AttemptLogger {
 	 * <strong>createNewAttempt</strong>
 	 * <p>
 	 * private static void <strong>createNewAttempt</strong>() throws
-	 * FileNotFoundException
+	 * {@link FileNotFoundException}
 	 * <p>
 	 * 
 	 * Creates a new file to save the attempts.
@@ -72,7 +72,7 @@ public class AttemptLogger {
 	/**
 	 * <strong>createLogName</strong>
 	 * <p>
-	 * private static String <strong>createLogName</strong>()
+	 * private static {@link String} <strong>createLogName</strong>()
 	 * <p>
 	 * 
 	 * Returns a name for a new attempt log file.
@@ -89,8 +89,8 @@ public class AttemptLogger {
 	/**
 	 * <strong>logAttempt</strong>
 	 * <p>
-	 * public static void <strong>logAttempt</strong>(String username, String
-	 * startTime, String endTime, int digits)
+	 * public static void <strong>logAttempt</strong>({@link String} username, {@link String}
+	 * startTime, {@link String} endTime, int digits)
 	 * <p>
 	 * 
 	 * Logs an attempt to the attempt log.
@@ -121,7 +121,7 @@ public class AttemptLogger {
 	/**
 	 * <strong>logAttempt</strong>
 	 * <p>
-	 * public static void <strong>logAttempt</strong>(UserAttempt attempt)
+	 * public static void <strong>logAttempt</strong>({@link UserAttempt} attempt)
 	 * <p>
 	 * 
 	 * Logs the user's attempt from the UserAttempt object.

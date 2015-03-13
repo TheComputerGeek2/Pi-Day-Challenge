@@ -42,7 +42,7 @@ public class DimensionsProcessor {
 	/**
 	 * <strong>centerFrame</strong>
 	 * <p>
-	 * public static void <strong>centerFrame</strong>(JFrame frame)
+	 * public static void <strong>centerFrame</strong>({@link JFrame} frame)
 	 * <p>
 	 * 
 	 * Centers the frame passed on the monitor.

@@ -30,7 +30,7 @@ public class AccuracyChecker {
 	/**
 	 * <strong>AccuracyChecker</strong>
 	 * <p>
-	 * public <strong>AccuracyChecker</strong>(PiInputField inputField, File
+	 * public <strong>AccuracyChecker</strong>({@link PiInputField} inputField, {@link File}
 	 * piDigits)
 	 * <p>
 	 * 
@@ -66,7 +66,7 @@ public class AccuracyChecker {
 	/**
 	 * <strong>getCurrentUserAttempt</strong>
 	 * <p>
-	 * public static UserAttempt <strong>getUserAttempt</strong>()
+	 * public static {@link UserAttempt} <strong>getUserAttempt</strong>()
 	 * <p>
 	 * 
 	 * Retrieves the UserAttempt object for the latest user attempt.
@@ -80,7 +80,7 @@ public class AccuracyChecker {
 	/**
 	 * <strong>getPreviousUserAttempt</strong>
 	 * <p>
-	 * public static UserAttempt <strong>getPreviousUserAttempt</strong>()
+	 * public static {@link UserAttempt} <strong>getPreviousUserAttempt</strong>()
 	 * <p>
 	 * 
 	 * Returns the UserAttempt object for the previous attempt.
@@ -111,7 +111,7 @@ public class AccuracyChecker {
 	/**
 	 * <strong>endAttempt</strong>
 	 * <p>
-	 * public static void <strong>endAttempt</strong>(long time, String reason)
+	 * public static void <strong>endAttempt</strong>(long time, {@link String} reason)
 	 * <p>
 	 * 
 	 * Indicates that this attempt should be marked with its ending data and
@@ -130,8 +130,8 @@ public class AccuracyChecker {
 	/**
 	 * <strong>endAttempt</strong>
 	 * <p>
-	 * public static void <strong>endAttempt</strong>(long time, String reason,
-	 * String username)
+	 * public static void <strong>endAttempt</strong>(long time, {@link String} reason,
+	 * {@link String} username)
 	 * <p>
 	 * 
 	 * Indicates that this attempt should be marked with its ending data and
@@ -201,7 +201,7 @@ public class AccuracyChecker {
 	/**
 	 * <strong>hasNewCharacter</strong>
 	 * <p>
-	 * private static boolean <strong>hasNewCharacter</strong>(String userText)
+	 * private static boolean <strong>hasNewCharacter</strong>({@link String} userText)
 	 * <p>
 	 * 
 	 * Checks if a new character has been entered to be checked.
@@ -226,7 +226,7 @@ public class AccuracyChecker {
 	/**
 	 * <strong>isCurrentCharacterValid</strong>
 	 * <p>
-	 * private static boolean <strong>isCurrentCharacterValid</strong>(String
+	 * private static boolean <strong>isCurrentCharacterValid</strong>({@link String}
 	 * userText)
 	 * <p>
 	 * 
@@ -238,14 +238,14 @@ public class AccuracyChecker {
 	 * @return if it is a valid character.
 	 */
 	private static boolean isCurrentCharacterValid(String userText) {
-		return (!VALID_CHARACTERS.contains(String.valueOf(userText
+		return (VALID_CHARACTERS.contains(String.valueOf(userText
 				.charAt(AccuracyChecker.digitIndex))));
 	}
 
 	/**
 	 * <strong>checkNextDigit</strong>
 	 * <p>
-	 * public static boolean <strong>checkNextDigit</strong>(String userText)
+	 * public static boolean <strong>checkNextDigit</strong>({@link String} userText)
 	 * <p>
 	 * 
 	 * Checks to see if the new digit is correct.
@@ -260,6 +260,10 @@ public class AccuracyChecker {
 		if (!AccuracyChecker.hasNewCharacter(userText)) {
 			Main.debugPrintln("No new characters found");
 			return true;
+		}
+		
+		if (!isCurrentCharacterValid(userText)) {
+			return false;
 		}
 
 		int userValue = Integer.parseInt(String.valueOf(userText

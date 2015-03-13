@@ -70,8 +70,8 @@ public class UserAttempt implements Comparable<UserAttempt> {
 	/**
 	 * <strong>UserAttempt</strong>
 	 * <p>
-	 * public <strong>UserAttempt</strong>(String username, String startTime,
-	 * String endTime, int digitsCorrect, String endReason)
+	 * public <strong>UserAttempt</strong>({@link String} username, {@link String} startTime,
+	 * {@link String} endTime, int digitsCorrect, {@link String} endReason)
 	 * <p>
 	 * 
 	 * Creates a new object to represent a user attempt with the specified data.
@@ -103,7 +103,7 @@ public class UserAttempt implements Comparable<UserAttempt> {
 	/**
 	 * <strong>getUsername</strong>
 	 * <p>
-	 * public String <strong>getUsername</strong>()
+	 * public {@link String} <strong>getUsername</strong>()
 	 * <p>
 	 * 
 	 * Returns the username associated with this attempt.
@@ -117,7 +117,7 @@ public class UserAttempt implements Comparable<UserAttempt> {
 	/**
 	 * <strong>getStartTime</strong>
 	 * <p>
-	 * public String <strong>getStartTime</strong>()
+	 * public {@link String} <strong>getStartTime</strong>()
 	 * <p>
 	 * 
 	 * Returns the start time associated with this attempt.
@@ -131,7 +131,7 @@ public class UserAttempt implements Comparable<UserAttempt> {
 	/**
 	 * <strong>getEndTime</strong>
 	 * <p>
-	 * public String <strong>getEndTime</strong>()
+	 * public {@link String} <strong>getEndTime</strong>()
 	 * <p>
 	 * 
 	 * Returns the end time associated with this attempt.
@@ -145,7 +145,7 @@ public class UserAttempt implements Comparable<UserAttempt> {
 	/**
 	 * <strong>getEndReason</strong>
 	 * <p>
-	 * public String <strong>getEndReason</strong>()
+	 * public {@link String} <strong>getEndReason</strong>()
 	 * <p>
 	 * 
 	 * Returns the apparent reason for this attempt being ended.
@@ -188,7 +188,7 @@ public class UserAttempt implements Comparable<UserAttempt> {
 	/**
 	 * <strong>setStartTime</strong>
 	 * <p>
-	 * public void <strong>setStartTime</strong>(String startTime)
+	 * public void <strong>setStartTime</strong>({@link String} startTime)
 	 * <p>
 	 * 
 	 * Sets the start time to associate with this attempt.
@@ -203,7 +203,7 @@ public class UserAttempt implements Comparable<UserAttempt> {
 	/**
 	 * <strong>setUsername</strong>
 	 * <p>
-	 * public void <strong>setUsername</strong>(String username)
+	 * public void <strong>setUsername</strong>({@link String} username)
 	 * <p>
 	 * 
 	 * Sets the username to associate with this attempt.
@@ -233,7 +233,7 @@ public class UserAttempt implements Comparable<UserAttempt> {
 	/**
 	 * <strong>setEndTime</strong>
 	 * <p>
-	 * public void <strong>setEndTime</strong>(String endTime)
+	 * public void <strong>setEndTime</strong>({@link String} endTime)
 	 * <p>
 	 * 
 	 * Sets the time that this attempt ended.
@@ -248,7 +248,7 @@ public class UserAttempt implements Comparable<UserAttempt> {
 	/**
 	 * <strong>setEndReason</strong>
 	 * <p>
-	 * public void <strong>setEndReason</strong>(String reason)
+	 * public void <strong>setEndReason</strong>({@link String} reason)
 	 * <p>
 	 * 
 	 * Specifies the reason this attempt ended.
@@ -278,7 +278,7 @@ public class UserAttempt implements Comparable<UserAttempt> {
 	/**
 	 * <strong>toString</strong>
 	 * <p>
-	 * public String <strong>toString</strong>()
+	 * public {@link String} <strong>toString</strong>()
 	 * <p>
 	 * 
 	 * Returns the string equivalent of this object. Each element is on its own
@@ -302,7 +302,7 @@ public class UserAttempt implements Comparable<UserAttempt> {
 	/**
 	 * <strong>toStrings</strong>
 	 * <p>
-	 * public String[] <strong>toStrings</strong>()
+	 * public {@link String}[] <strong>toStrings</strong>()
 	 * <p>
 	 * 
 	 * Creates a serialized form of the user attempt stored in a string array.
@@ -321,7 +321,7 @@ public class UserAttempt implements Comparable<UserAttempt> {
 	/**
 	 * <strong>loadFromStrings</strong>
 	 * <p>
-	 * public static UserAttempt <strong>loadFromStrings</strong>(String[]
+	 * public static {@link UserAttempt} <strong>loadFromStrings</strong>({@ink String[]}
 	 * attemptData)
 	 * <p>
 	 * 
