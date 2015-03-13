@@ -38,6 +38,11 @@ public class UserAttempt {
 		public static final String UNSPECIFIED = "Unknown Reason"; //$NON-NLS-1$
 	}
 
+	/**
+	 * A default name to give a user if they don't specify their's.
+	 * <p>
+	 * Value: {@value}
+	 */
 	public static final String DEFAULT_USERNAME = "Unspecified";
 
 	private String username = UserAttempt.DEFAULT_USERNAME; //$NON-NLS-1$
@@ -294,6 +299,20 @@ public class UserAttempt {
 				+ "\n" + this.digitsCorrect + "\n" + this.endReason; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
+	/**
+	 * <strong>toStrings</strong>
+	 * <p>
+	 * public String[] <strong>toStrings</strong>()
+	 * <p>
+	 * 
+	 * Creates a serialized form of the user attempt stored in a string array.
+	 * <p>
+	 * Can be recovered using {@link #loadFromStrings(String[])}
+	 * 
+	 * @return a serialized form of the attempt.
+	 * 
+	 * @see #loadFromStrings(String[])
+	 */
 	public String[] toStrings() {
 		return new String[] { this.username, this.startTime, this.endTime,
 				Integer.toString(this.digitsCorrect), this.endReason };

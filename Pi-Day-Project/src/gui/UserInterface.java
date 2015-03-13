@@ -20,7 +20,12 @@ public class UserInterface {
 	private PiInputField input;
 
 	private RankingDisplay ranking;
-	
+
+	/**
+	 * The title to be used for most frames in the application.
+	 * <p>
+	 * Value: {@value}
+	 */
 	public static final String FRAME_TITLE = "Pi Day Challenge"; //$NON-NLS-1$
 
 	public UserInterface() {
@@ -37,7 +42,7 @@ public class UserInterface {
 		panel.setLayout(new GridLayout(2, 1));
 		panel.add(UserInterface.makePreviousDigitsDisplay());
 		input = new PiInputField();
-		//panel.add(UserInterface.makeInputField());
+		// panel.add(UserInterface.makeInputField());
 		panel.add(input);
 		this.frame.add(panel, BorderLayout.CENTER);
 	}

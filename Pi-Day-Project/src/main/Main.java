@@ -62,16 +62,36 @@ public class Main {
 
 		} catch (IOException e) {
 			// TODO handle this nicely
-			JOptionPane.showMessageDialog(null,
-					"Something prevented the loading of the Pi.txt file.\n"
-							+ "If problem occurrs again,\n"
-							+ "run with debug mode enabled launching with:\n"
-							+ "java -jar PiDay.jar true",
-							
-					UserInterface.FRAME_TITLE, JOptionPane.ERROR_MESSAGE);
+			showErrorMessage(
+					"Something prevented the loading of the Pi.txt file.\n",
+					"If problem occurrs again,\n",
+					"run with debug mode enabled launching with:\n",
+					"java -jar PiDay.jar true");
+
 			Main.debugException(e);
-			
+
 			System.exit(1);
 		}
+	}
+
+	public static void showErrorMessage(String... message) {
+
+		JOptionPane.showMessageDialog(null, mergeStrings(message),
+				UserInterface.FRAME_TITLE, JOptionPane.ERROR_MESSAGE);
+	}
+
+	private static String mergeStrings(String... strings) {
+		String combined = "";
+		for (String s : strings) {
+			combined += s;
+		}
+
+		return combined;
+	}
+
+	public static void fatalErrorNotification() {
+		showErrorMessage("Fatal error encountered, unable to proceed.\n",
+				"Application will now shut down.");
+		System.exit(1);
 	}
 }

@@ -1,14 +1,10 @@
 package performance;
 
-import gui.UserInterface;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Date;
-
-import javax.swing.JOptionPane;
 
 import main.Main;
 
@@ -36,8 +32,8 @@ public class AttemptLogger {
 		try {
 			AttemptLogger.createNewAttemptFile();
 		} catch (FileNotFoundException e) {
-			// TODO handle this nicely instead of crashing
 			Main.debugException(e);
+			Main.fatalErrorNotification();
 		}
 
 	}
@@ -153,10 +149,9 @@ public class AttemptLogger {
 				AttemptLogger.currentAttemptLog = "Console";
 				AttemptLogger.out = System.out;
 
-				JOptionPane.showMessageDialog(null,
-						"An error occurred when creating the log file,\n"
-								+ "using console instead",
-						UserInterface.FRAME_TITLE, JOptionPane.WARNING_MESSAGE);
+				Main.showErrorMessage(
+						"An error occurred when creating the log file,\n",
+						"using console instead");
 
 			}
 		}

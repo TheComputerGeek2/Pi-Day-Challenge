@@ -48,7 +48,7 @@ public class AccuracyChecker {
 		AccuracyChecker.piDigits = piDigits;
 		AccuracyChecker.inputField = inputField;
 		AccuracyChecker.digitIndex = 0;
-
+		
 		if (AccuracyChecker.piReader != null) {
 			AccuracyChecker.piReader.close();
 		}
@@ -168,7 +168,7 @@ public class AccuracyChecker {
 			AccuracyChecker.piReader = new Scanner(AccuracyChecker.piDigits);
 		} catch (FileNotFoundException e) {
 			Main.debugException(e);
-			//TODO handle this nicely instead of crashing
+			Main.fatalErrorNotification();
 		}
 		AccuracyChecker.digitIndex = 0;
 		AccuracyChecker.inputField.setText(null);
